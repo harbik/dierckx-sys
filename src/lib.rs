@@ -30,8 +30,8 @@ extern {
         k: &usize,      // Degree of the spline, Cubic = 3
         s: &f64,        // Smoothing factor to be used if iopt >= 0
         nest: &usize,   // nest = m + k + 1
-        n: &mut usize,  // Number of knots returned. For iopt=-1 value needs to pe specified on entry
-        t: *mut f64,    // Array of dimension of at least nest. For iopt=-1 array of knots to be used for lsq spline
+        n: &mut usize,  // Number of knots returned. For iopt=-1 value needs to be specified on entry
+        t: *mut f64,    // Array of dimension of at least nest. For iopt=-1 array of knots to be used for least-squares spline
         c: *mut f64,    // Double array of at least nest. Will contain the coefficients of the b-spline representation
         fp: &mut f64,   // Weighted sum of the squared residuals of the spline approximation.
         wrk: *mut f64,  // Double array of dimension at least (m(k+1)+nest(7+3k)).
@@ -68,7 +68,7 @@ extern {
                         // choose 0 for only endpoint value (x) , 1 to add first derivative [x, dx/du], 2: to add second [x, dx/du, d2x/du2]
         de: *const f64, // Array with the actural derivative begin point constraints
         ne: &usize,     // Size of db: idim*ib
-        k: &usize,      // Degree of the spline, Cubic = 3
+        k: &usize,      // Degree of the spline, cubic = 3
         s: &f64,        // Smoothing factor to be used if iopt >= 0
         nest: &usize,   // nest=m+k+1+max(0,ib-1)+max(0,ie-1),
         n: &mut usize,  // Number of knots returned. For iopt=-1 value needs to pe specified on entry
