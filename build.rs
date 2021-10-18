@@ -12,7 +12,7 @@ fn main(){
         .files(files.iter().map(|&ff|format!("src/netlib-dierckx/{}",ff)))
         .compiler("gfortran")
         .flag("-std=legacy") 
-        .flag("-fdefault-real-8") // use f64 for all real values
+        .flag("-fdefault-real-8") // use 8 bytes for all floats
         .flag("-Wno-maybe-uninitialized") // suppress the maybe-unitialized warnings
         .flag("-O3") // opitmize level 3
         .compile("dierckx")
