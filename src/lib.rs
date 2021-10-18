@@ -32,7 +32,7 @@ extern "C" {
         k: *const c_int,        // Degree of the spline, Cubic = 3
         s: &c_double,           // Smoothing factor to be used if iopt >= 0
         nest: *const c_int,     // nest = m + k + 1
-        n: &mut usize,          // Number of knots returned. For iopt=-1 value needs to be specified on entry
+        n: &mut c_int,          // Number of knots returned. For iopt=-1 value needs to be specified on entry
         t: *mut c_double,       // Array of dimension of at least nest. For iopt=-1 array of knots to be used for least-squares spline
         c: *mut c_double,       // Double array of at least nest. Will contain the coefficients of the b-spline representation
         fp: &mut c_double,      // Weighted sum of the squared residuals of the spline approximation.
@@ -73,7 +73,7 @@ extern "C" {
         k: *const c_int,        // Degree of the spline, cubic = 3
         s: &c_double,           // Smoothing factor to be used if iopt >= 0
         nest: *const c_int,     // nest=m+k+1+max(0,ib-1)+max(0,ie-1),
-        n: &mut usize,          // Number of knots returned. For iopt=-1 value needs to pe specified on entry
+        n: &mut c_int,          // Number of knots returned. For iopt=-1 value needs to pe specified on entry
         t: *mut c_double,       // Array of dimension of at least nest. For iopt=-1 array of knots to be used for lsq spline
         nc: *const c_int,       // actual size of array c: nest * idim
         c: *mut c_double,       // coefficients of the b-spline representation, with size nc = nest * idim
