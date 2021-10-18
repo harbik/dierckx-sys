@@ -15,6 +15,7 @@ fn main(){
         .flag("-fdefault-real-8") // use 8 bytes for all floats
         .flag("-Wno-maybe-uninitialized") // suppress the maybe-unitialized warnings
         .flag("-O3") // opitmize level 3
+        .static_flag(true)
         .compile("dierckx")
 }
 
