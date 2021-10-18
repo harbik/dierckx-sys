@@ -17,7 +17,7 @@
   limitations under the License.
 */
 
-extern {
+extern "C" {
 
     pub fn curfit_(
         iopt: &i32,     // iopt -1: Least-squares spline fixed knots, 0,1: smoothing spline. iopt=0 and s=0: interpolating spline
