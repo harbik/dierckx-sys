@@ -5,7 +5,7 @@ fn main(){
         "fpadno.f", "fpadpo.f", "fpback.f", "fpbacp.f", "fpbfout.f", "fpbspl.f", "fpchec.f", "fpched.f", "fpchep.f",
         "fpclos.f", "fpcoco.f", "fpcons.f", "fpcosp.f", "fpcsin.f", "fpcurf.f", "fpcuro.f", "fpdeno.f", "fpdisc.f",
         "fpfrno.f", "fpgivs.f", "fpinst.f", "fpintb.f", "fpknot.f", "fppara.f", "fppocu.f", "fprati.f", "fprota.f",
-        "fpseno.f", "insert.f", "parcur.f", "spalde.f", "splder.f", "splint.f", "sproot.f"];
+        "fpseno.f", "insert.f", "parcur.f", "spalde.f", "splder.f", "splint.f", "splev.f", "sproot.f"];
         
         
     cc::Build::new()
