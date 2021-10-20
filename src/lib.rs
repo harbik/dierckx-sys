@@ -47,16 +47,6 @@ extern "C" {
         ier: *mut c_int         // Error flag.
     );
 
-    pub fn splev_(
-        t: *const c_double,     // array,length n, which contains the position of the knots
-        n: *const c_int,        // integer, giving the total number of knots of s(x). 
-        c: *const c_double,     // array,length n, which contains the b-spline coefficients
-        k: *const c_int,        // integer, giving the degree of s(x)
-        x: *const c_double,     // array,length m, which contains the points where s(x) must be evaluated
-        y: *mut c_double,       // array,length m, giving the value of s(x) at the different points
-        m: *const c_int,        // lenght of x and y
-        ier: *mut c_int,        // ier = 0 : normal return;  ier =10 : invalid input data : restrictions:  m >= 1, t(k+1) <= x(i) <= x(i+1) <= t(n-k) , i=1,2,...,m-1
-    ); 
 
     pub fn concur_(
         iopt: *const c_int,     // iopt -1: Least-squares spline fixed knots, 0,1: smoothing spline. iopt=0 and s=0: interpolating spline
@@ -90,4 +80,69 @@ extern "C" {
         iwrk: *mut c_int,       // Integer working array
         ier: *mut c_int         // Error flag.
     );
+
+    pub fn splev_(
+        t: *const c_double,     // array,length n, which contains the position of the knots
+        n: *const c_int,        // integer, giving the total number of knots of s(x). 
+        c: *const c_double,     // array,length n, which contains the b-spline coefficients
+        k: *const c_int,        // integer, giving the degree of s(x)
+        x: *const c_double,     // array,length m, which contains the points where s(x) must be evaluated
+        y: *mut c_double,       // array,length m, giving the value of s(x) at the different points
+        m: *const c_int,        // length of x and y
+        ier: *mut c_int,        // ier = 0 : normal return;  ier =10 : invalid input data : restrictions:  m >= 1, t(k+1) <= x(i) <= x(i+1) <= t(n-k) , i=1,2,...,m-1
+    ); 
+
+    pub fn curev_(
+        idim: *const c_int,     // integer, spline curve dimension
+        t: *const c_double,     // array, length n, knot positions
+        n: *const c_int,        // integer, total number of knots of s(x). 
+        c: *const c_double,     // array, length n, b-spline coefficients
+        nc: *const c_int,       // integer, number of b-spline coefficients
+        k: *const c_int,        // integer, spline degree
+        u: *const c_double,     // array,length m, which contains the points where spline s(u) must be evaluated
+        m: *const c_int,        // number of points where s(u) mut be evaluated
+        x: *const c_double,     // array,length mx;  x(idim*(i-1)+j) will contain the j-th coordinate of the i-th point on the curve
+        mx: *const c_int,       // length of x; mx>=m*idim
+        ier: *mut c_int,        // ier = 0 : normal return;  ier =10 : invalid input data : restrictions:  m >= 1, t(k+1) <= x(i) <= x(i+1) <= t(n-k) , i=1,2,...,m-1
+    ); 
+
+    // all derivatives for a single point
+    pub fn spalde_(
+        t: *const c_double,     // array,length n, which contains the position of the knots
+        n: *const c_int,        // integer, giving the total number of knots of s(x). 
+        c: *const c_double,     // array,length n, which contains the b-spline coefficients
+        k1: *const c_int,       // integer, giving the order of s(x), k+1, with k polynomial degree
+        x: *const c_double,     // (single) f64 value which contains the point where the derivatives must be evaluated
+        d: *mut c_double,       // array,length k+1, containing the derivative values of s(x)
+        ier: *mut c_int,        // ier = 0 : normal return;  ier =10 : invalid input data
+    );
+
+    // all derivatives for a single point
+    pub fn cualde_(
+        idim: *const c_int,     // integer, giving the dimension of the spline curve
+        t: *const c_double,     // array,length n, which contains the position of the knots
+        n: *const c_int,        // integer, giving the total number of knots of s(x). 
+        c: *const c_double,     // array,length n, which contains the b-spline coefficients
+        k1: *const c_int,       // integer, giving the order of s(x), k+1, with k polynomial degree
+        u: *const c_double,     // (single) f64 value which contains the point where the derivatives must be evaluated
+        d: *mut c_double,       // array,length nd, giving the different curve derivatives.  d(idim*l+j) will contain the j-th coordinate of the l-th  derivative of the curve at the point u 
+        nd: *const c_int,       // integer, giving the dimension of array d: `nd >=(k+1)*idim`
+        ier: *mut c_int,        // ier = 0 : normal return;  ier =10 : invalid input data
+    );
+
+    // a single derivative for an array of points
+    pub fn spalder_(
+        t: *const c_double,     // array,length n, which contains the position of the knots
+        n: *const c_int,        // integer, giving the total number of knots of s(x). 
+        c: *const c_double,     // array,length n, which contains the b-spline coefficients
+        k: *const c_int,        // integer, degree of s(x)
+        nu: *const c_int,       // integer, specifying the order of the derivative. 0<=nu<=k
+        x: *const c_double,     // array,length m, which contains the points where  the derivative of s(x) must be evaluated
+        y: *mut c_double,       // array,length m, giving the value of the derivative of s(x) at the different points
+        m: *const c_int,        // length of x 
+        wrk: *mut c_double,     // Float working array of dimension n
+        ier: *mut c_int,        // ier = 0 : normal return;  ier =10 : invalid input data
+    );
+    
+
 }
