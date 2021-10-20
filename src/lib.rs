@@ -101,8 +101,8 @@ extern "C" {
         k: *const c_int,        // integer, spline degree
         u: *const c_double,     // array,length m, which contains the points where spline s(u) must be evaluated
         m: *const c_int,        // number of points where s(u) mut be evaluated
-        x: *const c_double,     // array,length mx;  x(idim*(i-1)+j) will contain the j-th coordinate of the i-th point on the curve
-        mx: *const c_int,       // length of x; mx>=m*idim
+        xy: *mut c_double,      // array,length mxy;  x(idim*(i-1)+j) will contain the j-th coordinate of the i-th point on the curve
+        mxy: *const c_int,      // length of xy; mxy>=m*idim
         ier: *mut c_int,        // ier = 0 : normal return;  ier =10 : invalid input data : restrictions:  m >= 1, t(k+1) <= x(i) <= x(i+1) <= t(n-k) , i=1,2,...,m-1
     ); 
 
