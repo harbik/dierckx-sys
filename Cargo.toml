@@ -1,6 +1,6 @@
 [package]
 name = "dierckx-sys"
-version = "0.0.1"
+version = "0.1.0"
 edition = "2018"
 description = "Rust-wrapper for Dierckx' B-Splines Curve and Surface Fortran Library"
 authors = ["Gerard Harbers", "Harbers Bik LLC"]
