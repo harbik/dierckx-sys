@@ -225,16 +225,22 @@ c  are invalid, control is immediately repassed to the calling program.
       if(k.le.0 .or. k.gt.5) go to 50
       k1 = k+1
       k2 = k1+1
+      ier = 11
       if(iopt.lt.(-1) .or. iopt.gt.1) go to 50
       nmin = 2*k1
+      ier = 12
       if(m.lt.k1 .or. nest.lt.nmin) go to 50
       lwest = m*k1+nest*(7+3*k)
+      ier = 13
       if(lwrk.lt.lwest) go to 50
+      ier = 14
       if(xb.gt.x(1) .or. xe.lt.x(m) .or. w(1).le.0.) go to 50
+      ier = 15
       do 10 i=2,m
          if(x(i-1).ge.x(i) .or. w(i).le.0.) go to 50
   10  continue
       if(iopt.ge.0) go to 30
+      ier = 16
       if(n.lt.nmin .or. n.gt.nest) go to 50
       j = n
       do 20 i=1,k1
@@ -244,9 +250,11 @@ c  are invalid, control is immediately repassed to the calling program.
   20  continue
       call fpchec(x,m,t,n,k,ier)
       if(ier) 50,40,50
+      ier = 16
   30  if(s.lt.0.) go to 50
 c     GH211017
 c     if(s.eq.0. .and. nest.lt.(m+k1)) go to 50
+      ier = 17
       if(abs(s)<epsilon(s) .and. nest.lt.(m+k1)) go to 50
       ier = 0
 c we partition the working space and determine the spline approximation.
