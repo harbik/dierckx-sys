@@ -26,9 +26,10 @@ c  ..
       k2 = k1+1
       nk1 = n-k1
       nk2 = nk1+1
-      ier = 10
+      ier = 21
 c  check condition no 1
       if(nk1.lt.k1 .or. nk1.gt.m) go to 80
+      ier = 22
 c  check condition no 2
       j = n
       do 20 i=1,k
@@ -36,12 +37,15 @@ c  check condition no 2
         if(t(j).lt.t(j-1)) go to 80
         j = j-1
   20  continue
+      ier = 23
 c  check condition no 3
       do 30 i=k2,nk2
         if(t(i).le.t(i-1)) go to 80
   30  continue
+      ier = 24
 c  check condition no 4
       if(x(1).lt.t(k1) .or. x(m).gt.t(nk2)) go to 80
+      ier = 25
 c  check condition no 5
       if(x(1).ge.t(k2) .or. x(m).le.t(nk1)) go to 80
       i = 1
