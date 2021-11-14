@@ -32,10 +32,11 @@ c  ..
       if(ib1.lt.0) ib1 = 0
       ie1 = ie-1
       if(ie1.lt.0) ie1 = 0
-      ier = 10
 c  check condition no 1
+      ier = 51
       if(nk1.lt.k1 .or. nk1.gt.(m+ib1+ie1)) go to 80
 c  check condition no 2
+      ier = 52
       j = n
       do 20 i=1,k
         if(t(i).gt.t(i+1)) go to 80
@@ -43,12 +44,15 @@ c  check condition no 2
         j = j-1
   20  continue
 c  check condition no 3
+      ier = 53
       do 30 i=k2,nk2
         if(t(i).le.t(i-1)) go to 80
   30  continue
 c  check condition no 4
+      ier = 54
       if(x(1).lt.t(k1) .or. x(m).gt.t(nk2)) go to 80
 c  check condition no 5
+      ier = 55
       if(x(1).ge.t(k2) .or. x(m).le.t(nk1)) go to 80
       i = 1
       jj = 2+ib1
