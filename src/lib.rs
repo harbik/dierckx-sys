@@ -21,10 +21,6 @@ use libc::{c_double,c_int, };
 
 extern "C" {
 
-
-
-
-
     #[doc = include_str!("curfit.md")]
     pub fn curfit_(
         iopt: *const c_int,     // iopt -1: Least-squares spline fixed knots, 0,1: smoothing spline. iopt=0 and s=0: interpolating spline

@@ -33,7 +33,7 @@ To use this library add this to your `Cargo.toml` file:
 
 ```
 [dependencies]
-dierckx-sys = "0.0.1"
+dierckx-sys = "0.1.0"
 ```
 
 For further instructions and examples see the separate `dierckx` crate.
