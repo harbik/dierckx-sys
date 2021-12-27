@@ -5,7 +5,7 @@ edition = "2018"
 description = "Rust-wrapper for Dierckx' B-Splines Curve and Surface Fortran Library"
 authors = ["Gerard Harbers", "Harbers Bik LLC"]
 repository = "https://github.com/harbik/dierckx-sys"
-keywords = ["spline", "interpolation", "curve", "surface", "smoothing", "fitting"]
+keywords = ["spline", "interpolation", "curve", "smoothing", "fitting"]
 license = "MIT OR Apache-2.0"
 
 [dependencies]
